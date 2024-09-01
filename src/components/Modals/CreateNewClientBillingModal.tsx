@@ -72,7 +72,7 @@ const CreateNewClientBillingModal: React.FC<ModalProps> = ({
       <aside className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
         <div className="flex justify-center">
           <p className="font-black text-[32px]">
-            Criar nova cobrança
+            Cadastrar nova cobrança
           </p>
         </div>
         <BillingForm

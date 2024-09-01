@@ -66,7 +66,7 @@ const RegisterNewClientModal: React.FC<ModalProps> = ({
       <aside className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
         <div className="flex justify-center">
           <h1 className="font-black text-[32px]">
-            Cadastrar
+            Cadastrar novo cliente
           </h1>
         </div>
         <ClientForm
@@ -80,7 +80,7 @@ const RegisterNewClientModal: React.FC<ModalProps> = ({
           setAddress={setAddress}
         />
         <CustomButton onClick={handleCreateClient} disabled={loading}>
-          {loading ? 'Cadastrando...' : 'Criar Conta'}
+          {loading ? 'Cadastrando...' : 'Confirmar'}
         </CustomButton>
       </aside>
     </CustomModal>
