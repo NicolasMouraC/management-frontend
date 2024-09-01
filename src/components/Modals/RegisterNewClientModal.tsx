@@ -32,6 +32,13 @@ const RegisterNewClientModal: React.FC<ModalProps> = ({
     return true;
   };
 
+  const resetForm = () => {
+    setName('');
+    setDocument('');
+    setPhone('');
+    setAddress('');
+  }
+
   const handleCreateClient = async () => {
     if (!validateForm()) return;
 
@@ -44,6 +51,7 @@ const RegisterNewClientModal: React.FC<ModalProps> = ({
         phone,
       });
       toast.success('Cliente criado com sucesso!');
+      resetForm();
       addClientToContext(response);
       onClose();
     } catch {

@@ -35,6 +35,13 @@ const CreateNewClientBillingModal: React.FC<ModalProps> = ({
     return true;
   };
 
+  const resetForm = () => {
+    setDescription('');
+    setValue('');
+    setDueDate(null);
+    setIsPayed(false);
+  }
+
   const handleCreateBilling = async () => {
     if (!validateForm()) return;
 
@@ -50,6 +57,7 @@ const CreateNewClientBillingModal: React.FC<ModalProps> = ({
         }
       );
       toast.success('Cobrança criada com sucesso!');
+      resetForm();
       addBillingToContext(response);
       onClose();
     } catch {
