@@ -1,11 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import { useClientsContext } from "../../context/clients/ClientsContext";
+import { useBillingsContext } from "../../context/billings/BillingsContext";
 import { removeToken } from "../../utils";
 
 const Header = () => {
+  const { cleanClientsContext } = useClientsContext();
+  const { cleanBillingsContext } = useBillingsContext();
   const navigate =  useNavigate();
 
   const handleLogOut = () => {
     removeToken();
+    cleanBillingsContext();
+    cleanClientsContext();
     navigate('/auth')
   }
 

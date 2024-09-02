@@ -12,5 +12,6 @@ export interface ClientsContextType {
   addClientToContext: (client: Client | null) => void;
   editClientFromContext: (client: Client | null) => void;
   removeClientFromContext: (clientId: number) => void;
+  cleanClientsContext: () => void;
   selectClient: (client: Client) => void;
 }

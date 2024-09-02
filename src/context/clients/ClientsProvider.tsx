@@ -36,6 +36,10 @@ export const ClientsProvider: React.FC<ParentComponentProps> = ({ children }) =>
     setClients(prevClients => prevClients.filter(c => c.id !== clientId));
   }
 
+  const cleanClientsContext = () => {
+    setClients([]);
+  }
+
   const selectClient = (client: Client) => {
     setCurrentSelectedClient(client);
   }
@@ -50,6 +54,7 @@ export const ClientsProvider: React.FC<ParentComponentProps> = ({ children }) =>
         addClientToContext,
         editClientFromContext,
         removeClientFromContext,
+        cleanClientsContext,
         selectClient,
       }}
     >

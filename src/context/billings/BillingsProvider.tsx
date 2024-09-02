@@ -32,6 +32,10 @@ export const BillingsProvider: React.FC<ParentComponentProps> = ({ children }) =
     setBillings(prevBillings => prevBillings.filter(c => c.id !== billingId));
   }
 
+  const cleanBillingsContext = () => {
+    setBillings([]);
+  }
+
   const selectBilling = (billing: Billing) => {
     setCurrentSelectedBilling(billing);
   }
@@ -46,6 +50,7 @@ export const BillingsProvider: React.FC<ParentComponentProps> = ({ children }) =
         addBillingToContext,
         editBillingFromContext,
         removeBillingFromContext,
+        cleanBillingsContext,
         selectBilling,
       }}
     >

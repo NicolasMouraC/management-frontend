@@ -12,5 +12,6 @@ export interface BillingsContextType {
   addBillingToContext: (billing: Billing | null) => void;
   editBillingFromContext: (billing: Billing | null) => void;
   removeBillingFromContext: (billingId: number) => void;
+  cleanBillingsContext: () => void;
   selectBilling: (billing: Billing) => void;
 }
