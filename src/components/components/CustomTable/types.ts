@@ -17,6 +17,7 @@ interface CustomTableProps {
   setPage: (page: number) => void;
   rowsPerPage: number;
   setRowsPerPage: (page: number) => void;
+  isLoading: boolean;
 }
 
 export default CustomTableProps;

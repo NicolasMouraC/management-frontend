@@ -2,6 +2,7 @@ import { Table, TableBody, TableContainer, TableHead, TableRow, Paper, TablePagi
 import ClientRow from "./ClientRow";
 import ClientBillingRow from "./ClientBillingRow";
 import NoItems from "../NoItems";
+import LoadingItems from "../LoadingItems";
 import { StyledTableCell, StyledTableRow } from "./styles";
 import Client from "../../../types/models/Client";
 import Billing from "../../../types/models/Billing";
@@ -15,6 +16,7 @@ const CustomTable: React.FC<CustomTableProps> = ({
   rowsPerPage,
   setPage,
   setRowsPerPage,
+  isLoading,
 }) => {
   return (
     <Paper>
@@ -37,6 +39,13 @@ const CustomTable: React.FC<CustomTableProps> = ({
             </TableRow>
           </TableHead>
           <TableBody>
+            {isLoading && (
+              <StyledTableRow>
+                <StyledTableCell colSpan={columns.length}>
+                  <LoadingItems aria-label="Carregando" />
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
             {data.length ? data.map((row, index) => (
               tableType === "clients" ? ( 
                 <ClientRow row={row as Client} key={index} />

@@ -21,20 +21,29 @@ const ClientBillings = () => {
   const [openModal, setOpenModal] = useState(false);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGetBillings = async () => {
+    setIsLoading(true);
+
     try {
       if (!currentSelectedClient?.id) {
         navigate('/')
         return;
       }
 
-      const billings = await getBillings(currentSelectedClient?.id as number, page, rowsPerPage);
+      const billings = await getBillings(
+        currentSelectedClient?.id as number,
+        page,
+        rowsPerPage
+      );
 
       addBillingsToContext(billings);
     } catch {
       toast.error("Erro de conexão.");
       addBillingsToContext([]);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -84,6 +93,7 @@ const ClientBillings = () => {
         rowsPerPage={rowsPerPage}
         setPage={setPage}
         setRowsPerPage={setRowsPerPage}
+        isLoading={isLoading}
       />
       <CreateNewClientBillingModal
         open={openModal}

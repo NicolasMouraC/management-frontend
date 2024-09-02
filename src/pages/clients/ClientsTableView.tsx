@@ -18,8 +18,11 @@ const ClientsTableView = () => {
   const [openModal, setOpenModal] = useState(false);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGetClients = async () => {
+    setIsLoading(true);
+
     try {
       const clients = await getClients(page, rowsPerPage);
 
@@ -27,6 +30,8 @@ const ClientsTableView = () => {
     } catch {
       toast.error("Erro de conexão.");
       addClientsToContext([]);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -61,6 +66,7 @@ const ClientsTableView = () => {
         rowsPerPage={rowsPerPage}
         setPage={setPage}
         setRowsPerPage={setRowsPerPage}
+        isLoading={isLoading}
       />
       <RegisterNewClientModal
         open={openModal}
