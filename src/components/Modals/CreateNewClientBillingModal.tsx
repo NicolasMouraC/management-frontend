@@ -69,9 +69,13 @@ const CreateNewClientBillingModal: React.FC<ModalProps> = ({
   
   return (
     <CustomModal open={open} onClose={onClose}>
-      <aside className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
+      <aside
+        className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl"
+        role="dialog"
+        aria-labelledby="modal-title"
+      >
         <div className="flex justify-center">
-          <p className="font-black text-[32px]">
+          <p className="font-black text-[32px]" id="modal-title">
             Cadastrar nova cobrança
           </p>
         </div>
@@ -85,7 +89,11 @@ const CreateNewClientBillingModal: React.FC<ModalProps> = ({
           description={description}
           setDescription={setDescription}
         />
-        <CustomButton onClick={handleCreateBilling} disabled={loading}>
+        <CustomButton
+          onClick={handleCreateBilling}
+          disabled={loading}
+          aria-label="Confirmar criação da cobrança"
+        >
           {loading ? 'Criando...' : 'Confirmar'}
         </CustomButton>
       </aside>

@@ -19,17 +19,19 @@ const BillingForm: React.FC<BillingFormProps> = ({
   setDescription,
 }) => {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5" role="form">
       <CustomInput
         label="Descrição"
         value={description}
         onChange={(e) => setDescription(e.currentTarget.value)}
+        aria-label="Descrição da cobrança"
       />
       <div className="flex gap-5 items-center">
         <CustomInput
           label="Valor"
           value={value}
           onChange={(e) => setValue(regexOnlyNumbers(e.currentTarget.value))}
+          aria-label="Valor da cobrança"
         />
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
@@ -42,7 +44,13 @@ const BillingForm: React.FC<BillingFormProps> = ({
         </LocalizationProvider>
         <FormControlLabel
           value={isPayed}
-          control={<Checkbox checked={isPayed} onClick={() => setIsPayed(!isPayed)} />}
+          control={
+            <Checkbox
+              checked={isPayed}
+              onClick={() => setIsPayed(!isPayed)}
+              aria-label="Cobrança paga?"
+            />
+          }
           label="Pago?"
           labelPlacement="top"
         />

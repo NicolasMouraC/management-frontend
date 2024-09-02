@@ -47,6 +47,7 @@ const ClientsTableView = () => {
           <button
             onClick={() => setOpenModal(true)}
             className="text-[12px] w-[200px] h-[48px] py-1 px-3 rounded-lg bg-[#000000] text-white"
+            aria-label="Cadastrar novo cliente"
           >
             Cadastrar
           </button>

@@ -34,22 +34,28 @@ const DeleteRowModal: React.FC<DeleteRowModalProps> = ({
   
   return (
     <CustomModal open={open} onClose={onClose}>
-      <aside className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
+      <aside
+        className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl"
+        role="dialog"
+        aria-labelledby="modal-title"  
+      >
       <div className="flex justify-center">
-        <h1 className="font-black text-[32px]">
+        <h1 className="font-black text-[32px]" id="modal-title">
           Deletar?
         </h1>
       </div>
       <div className="flex gap-10 justify-between">
         <button
-          className=" w-full text-[20px] p-1 rounded-lg bg-[#000000] text-white"
+          className="w-full text-[20px] p-1 rounded-lg bg-[#000000] text-white"
           onClick={onClose}
+          aria-label="Fechar modal"
         >
           Não
         </button>
         <button
           className=" w-full text-[20px] p-1 rounded-lg bg-[#000000] text-white"
           onClick={handleDeleteRow}
+          aria-label="Deletar"
         >
           Sim
         </button>

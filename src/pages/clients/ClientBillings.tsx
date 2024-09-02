@@ -60,6 +60,7 @@ const ClientBillings = () => {
             <button
               className="text-[12px] w-[200px] h-[48px] py-1 px-3 rounded-lg bg-[#000000] text-white"
               onClick={() => setOpenModal(true)}
+              aria-label="Cadastrar nova cobrança"
             >
               Cadastrar
             </button>
@@ -68,6 +69,7 @@ const ClientBillings = () => {
             <button
               className="text-[12px] w-[200px] h-[48px] py-1 px-3 rounded-lg bg-[#D91818] text-white"
               onClick={handleRedirectToClientsPage}
+              aria-label="Cancelar e voltar para a página de clientes"
             >
               Cancelar
             </button>
@@ -82,7 +84,7 @@ const ClientBillings = () => {
         rowsPerPage={rowsPerPage}
         setPage={setPage}
         setRowsPerPage={setRowsPerPage}
-       />
+      />
       <CreateNewClientBillingModal
         open={openModal}
         onClose={() => setOpenModal(false)}

@@ -64,9 +64,13 @@ const EditClientModal: React.FC<EditClientModalProps> = ({
 
   return (
     <CustomModal open={open} onClose={onClose}>
-      <aside className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
+      <aside
+        className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl"
+        role="dialog"
+        aria-labelledby="modal-title"
+      >
         <div className="flex justify-center">
-          <h1 className="font-black text-[32px]">
+          <h1 className="font-black text-[32px]" id="modal-title">
             Editar Cliente
           </h1>
         </div>
@@ -80,7 +84,11 @@ const EditClientModal: React.FC<EditClientModalProps> = ({
           address={address}
           setAddress={setAddress}
         />
-        <CustomButton onClick={handleCreateClient} disabled={loading}>
+        <CustomButton
+          onClick={handleCreateClient}
+          disabled={loading}
+          aria-label="Confirmar edição de cliente"
+        >
           {loading ? 'Salvando...' : 'Salvar'}
         </CustomButton>
       </aside>

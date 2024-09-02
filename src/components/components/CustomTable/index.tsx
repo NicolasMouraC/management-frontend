@@ -19,11 +19,18 @@ const CustomTable: React.FC<CustomTableProps> = ({
   return (
     <Paper>
       <TableContainer>
-        <Table sx={{ width: '100%', maxWidth: 1600 }} aria-label="customized table">
+        <Table
+          sx={{ width: '100%', maxWidth: 1600 }}
+          aria-label="customized table"
+        >
           <TableHead>
             <TableRow>
               {columns.map((column, index) => (
-                <StyledTableCell align={index === 0 ? "left" : "center"} key={index}>
+                <StyledTableCell
+                  align={index === 0 ? "left" : "center"}
+                  key={index}
+                  aria-label={`Coluna ${column}`}
+                >
                   {column}
                 </StyledTableCell>
               ))}
@@ -39,7 +46,7 @@ const CustomTable: React.FC<CustomTableProps> = ({
             )) : (
               <StyledTableRow>
                 <StyledTableCell colSpan={columns.length}>
-                  <NoItems />
+                  <NoItems aria-label="Nenhum item disponível" />
                 </StyledTableCell>
               </StyledTableRow>
             )
@@ -56,6 +63,8 @@ const CustomTable: React.FC<CustomTableProps> = ({
         onPageChange={(_, v) => setPage(v)}
         // @ts-expect-error comment
         onRowsPerPageChange={(_, v) => setRowsPerPage(v.props.value)}
+        labelRowsPerPage="Linhas por página"
+        aria-label="Paginação da tabela"
       />
     </Paper>
   );

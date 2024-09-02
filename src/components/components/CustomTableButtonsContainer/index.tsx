@@ -25,12 +25,16 @@ const CustomTableButtonsContainer: React.FC<CustomTableButtonsContainerProps> = 
           onClick={() => (
             tableType === 'billings' ? setOpenEditBillingModal(true) : setOpenEditClientModal(true)
           )}
+          aria-label={tableType === 'billings' ? "Editar cobrança" : "Editar cliente"}
+          role="button"
         >
           <EditNoteIcon />
         </button>
         <button
           className="p-1 rounded-lg bg-[#D91818] text-white"
           onClick={() => setOpenDeleteModal(true)}
+          aria-label="Excluir"
+          role="button"
         >
           <DeleteIcon />
         </button>
@@ -38,6 +42,8 @@ const CustomTableButtonsContainer: React.FC<CustomTableButtonsContainerProps> = 
           <button
             className="text-[12px] py-1 px-3 rounded-lg bg-[#000000] text-white"
             onClick={additionalAction}
+            aria-label={additionalActionText}
+            role="button"
           >
             {additionalActionText}
           </button>

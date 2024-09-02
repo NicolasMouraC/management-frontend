@@ -8,6 +8,7 @@ const NoItems = () => {
           src={laptopAlert}
           width={70}
           height={70}
+          alt="Nenhum item disponível"
         />
       </div>
       <p className="text-[24px]">

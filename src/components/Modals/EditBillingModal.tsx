@@ -70,9 +70,15 @@ const EditBillingModal: React.FC<EditBillingModalProps> = ({
 
   return (
     <CustomModal open={open} onClose={onClose}>
-      <aside className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
+      <aside
+        className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl"
+        role="dialog"
+        aria-labelledby="modal-title"
+      >
         <div className="flex justify-center">
-          <h1 className="font-black text-[32px]">Editar Cobrança</h1>
+          <h1 className="font-black text-[32px]" id="modal-title">
+            Editar Cobrança
+          </h1>
         </div>
         <BillingForm
           value={value}
@@ -84,7 +90,11 @@ const EditBillingModal: React.FC<EditBillingModalProps> = ({
           description={description}
           setDescription={setDescription}
         />
-        <CustomButton onClick={handleEditClient} disabled={loading}>
+        <CustomButton
+          onClick={handleEditClient}
+          disabled={loading}
+          aria-label="Confirmar edição de cobrança"
+        >
           {loading ? 'Salvando...' : 'Confirmar'}
         </CustomButton>
       </aside>

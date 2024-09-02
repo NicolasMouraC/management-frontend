@@ -13,28 +13,32 @@ const ClientForm: React.FC<ClientFormProps> = ({
   setAddress,
 }) => {
   return (
-    <>
+    <div role="form">
       <CustomInput
         label="Nome"
         value={name}
         onChange={(e) => setName(e.currentTarget.value)}
+        aria-label="Nome do cliente"
       />
       <CustomInput
         label="Documento"
         value={document}
         onChange={(e) => setDocument(e.currentTarget.value)} 
+        aria-label="Docuemnto do cliente"
       />
       <CustomInput
         label="Telefone"
         value={phone}
         onChange={(e) => setPhone(regexOnlyNumbers(e.currentTarget.value))}
+        aria-label="Telefone da cobrança"
       />
       <CustomInput
         label="Endereço"
         value={address}
         onChange={(e) => setAddress(e.currentTarget.value)}
+        aria-label="Endereço do cliente"
       />
-    </>
+    </div>
   )
 }
 

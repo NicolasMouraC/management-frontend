@@ -43,25 +43,38 @@ const LoginForm: React.FC<FormProps> = ({ redirect }) => {
   return (
     <main className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
       <div className="flex justify-center">
-        <h1 className="font-black text-[32px]">Login</h1>
+        <h1 className="font-black text-[32px]">
+          Login
+        </h1>
       </div>
-      <CustomInput
-        label="Email"
-        value={email}
-        onChange={(e) => setEmail(e.currentTarget.value)}
-      />
-      <CustomInput
-        label="Senha"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.currentTarget.value)}
-      />
-      <CustomButton onClick={handleLogin} disabled={loading}>
-        {loading ? 'Entrando...' : 'Entrar'}
-      </CustomButton>
-      <p className="text-center cursor-pointer" onClick={redirect}>
-        Clique aqui para criar uma conta
-      </p>
+      <div className="flex flex-col gap-5" role="form">
+        <CustomInput
+          label="Email"
+          type="email"
+          aria-label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.currentTarget.value)}
+        />
+        <CustomInput
+          label="Senha"
+          type="password"
+          aria-label="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.currentTarget.value)}
+        />
+        <CustomButton
+          onClick={handleLogin}
+          disabled={loading}
+          aria-label="Entrar"
+        >
+          {loading ? 'Entrando...' : 'Entrar'}
+        </CustomButton>
+          <p className="text-center cursor-pointer" onClick={redirect}>
+            <a>
+              Clique aqui para criar uma conta
+            </a>
+          </p>
+      </div>
     </main>
   );
 };

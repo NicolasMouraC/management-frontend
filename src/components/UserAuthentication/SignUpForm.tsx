@@ -46,30 +46,44 @@ const SignUpForm: React.FC<FormProps> = ({ redirect }) => {
   return (
     <main className="flex flex-col gap-5 bg-white p-8 min-w-[400px] text-black rounded-xl">
       <div className="flex justify-center">
-        <h1 className="font-black text-[32px]">Cadastrar</h1>
+        <h1 className="font-black text-[32px]">
+          Cadastrar
+        </h1>
       </div>
-      <CustomInput
-        label="Nome"
-        value={name}
-        onChange={(e) => setName(e.currentTarget.value)}
-      />
-      <CustomInput
-        label="Email"
-        value={email}
-        onChange={(e) => setEmail(e.currentTarget.value)}
-      />
-      <CustomInput
-        label="Senha"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.currentTarget.value)}
-      />
-      <CustomButton onClick={handleRegister} disabled={loading}>
-        {loading ? 'Cadastrando...' : 'Criar Conta'}
-      </CustomButton>
-      <p className="text-center cursor-pointer" onClick={redirect}>
-        Cancelar
-      </p>
+      <div className="flex flex-col gap-5" role="form">
+        <CustomInput
+          label="Nome"
+          aria-label="Nome"
+          value={name}
+          onChange={(e) => setName(e.currentTarget.value)}
+        />
+        <CustomInput
+          label="Email"
+          type="email"
+          aria-label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.currentTarget.value)}
+        />
+        <CustomInput
+          label="Senha"
+          type="password"
+          aria-label="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.currentTarget.value)}
+        />
+        <CustomButton
+          onClick={handleRegister}
+          disabled={loading}
+          aria-label="Criar conta"
+        >
+          {loading ? 'Cadastrando...' : 'Criar Conta'}
+        </CustomButton>
+        <p className="text-center cursor-pointer" onClick={redirect}>
+          <a>
+            Cancelar
+          </a>
+        </p>
+      </div>
     </main>
   );
 };
